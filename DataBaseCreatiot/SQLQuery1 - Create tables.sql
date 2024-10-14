@@ -7,69 +7,69 @@ CREATE TABLE Directions
 
 CREATE TABLE Groups
 (
-	group_id int primary key,
-	group_name nvarchar(16) not null,
-	direction smallint not null 
-	constraint FK_Group_Directions foreign key references Directions(direction_id)
+	group_id INT PRIMARY KEY,
+	group_name NVARCHAR(16) NOT NULL,
+	direction SMALLINT NOT NULL 
+	CONSTRAINT FK_Group_Directions FOREIGN KEY REFERENCES Directions(direction_id)
 );
 
-create table Students
+CREATE TABLE Students
 (
-	student_id bigint primary key,
-	last_name nvarchar(150) not null,
-	first_name nvarchar(150) not null,
-	middle_name nvarchar(150),
-	birth_date date not null,
-	[group] int not null
-	constraint FK_Students_Groups foreign key references Groups(group_id)
+	student_id INT PRIMARY KEY IDENTITY(1,1),
+	last_name NVARCHAR(150) NOT NULL,
+	first_name NVARCHAR(150) NOT NULl,
+	middle_name NVARCHAR(150),
+	birth_date DATE NOT NULL,
+	[group] INT NOT NULL
+	CONSTRAINT FK_Students_Groups FOREIGN KEY REFERENCES Groups(group_id)
 );
 
-create table ReportTypes
+CREATE TABLE ReportTypes
 (
-	report_type_id tinyint primary key not null,
-	report_type_name nvarchar(50) not null	
+	report_type_id TINYINT PRIMARY KEY NOT NULL,
+	report_type_name NVARCHAR(50) NOT NULL	
 );
 
-create table Teachers
+CREATE TABLE Teachers
 (
-	teacher_id int primary key,
-	last_name nvarchar(150) not null,
-	first_name nvarchar(150) not null,
-	middle_name nvarchar(150),
-	birth_date date not null,
-	work_since date not null,
-	rate money
+	teacher_id INT PRIMARY KEY,
+	last_name NVARCHAR(150) NOT NULL,
+	first_name NVARCHAR(150) NOT NULL,
+	middle_name NVARCHAR(150),
+	birth_date DATE NOT NULL,
+	work_since DATE NOT NULL,
+	rate MONEY
 );
 
-create table Disciplines
+CREATE TABLE Disciplines
 (
-	discipline_id smallint primary key,
-	discipline_name nvarchar(50) not null,
-	number_of_lessons int,
-	report_type tinyint 	
-	constraint FK_Disciplines_ReportTypes foreign key references ReportTypes(report_type_id),	
+	discipline_id SMALLINT PRIMARY KEY,
+	discipline_name NVARCHAR(50) NOT NULL,
+	number_of_lessons INT,
+	report_type TINYINT 	
+	CONSTRAINT FK_Disciplines_ReportTypes FOREIGN KEY REFERENCES ReportTypes(report_type_id),	
 
 );
 create table Schedule
 (
-	lesson_id bigint primary key,
-	[date] date not null,
-	[time] time not null,
-	[group] int not null 
-	constraint FK_Schedule_Groups foreign key references Groups(group_id),	
-	discipline smallint not null 
-	constraint FK_Schedule_Disciplines foreign key references Disciplines(discipline_id),	
-	[subject] nvarchar(256),
-	spent bit,
-	teacher int
-	constraint FK_Schedule_Teachers foreign key references Teachers(teacher_id),	
+	lesson_id BIGINT PRIMARY KEY,
+	[date] DATE NOT NULL,
+	[time] TIME NOT NULL,
+	[group] INT NOT NULL 
+	CONSTRAINT FK_Schedule_Groups FOREIGN KEY REFERENCES Groups(group_id),	
+	discipline SMALLINT NOT NULL 
+	constraint FK_Schedule_Disciplines FOREIGN KEY REFERENCES Disciplines(discipline_id),	
+	[subject] NVARCHAR(256),
+	spent BIT,
+	teacher INT
+	CONSTRAINT FK_Schedule_Teachers FOREIGN KEY REFERENCES Teachers(teacher_id),	
 );
 create table Grades
 (
-	student bigint 
-	constraint FK_Grades_Student foreign key references Students(student_id),
+	student INT 
+	CONSTRAINT FK_Grades_Student foreign key references Students(student_id),
 	lesson bigint
-	constraint FK_Grades_Schedule foreign key references Schedule(lesson_id),
+	CONSTRAINT FK_Grades_Schedule foreign key references Schedule(lesson_id),
 	grade_1 tinyint check(grade_1>0 and grade_1>=12),
 	grade_2 tinyint check(grade_2>0 and grade_2>=12),
 	primary key(student,lesson)
@@ -77,8 +77,8 @@ create table Grades
 
 create table Exams
 (
-	student bigint 
-	constraint FK_Exams_Students foreign key references Students(student_id),
+	student INT 
+	CONSTRAINT FK_Exams_Students foreign key references Students(student_id),
 	lesson bigint
 	constraint FK_Exams_Schedule foreign key references Schedule(lesson_id),
 	grade tinyint check(grade>0 and grade>=12),
@@ -103,22 +103,22 @@ create table CompleteDiscipline
 	primary key(discipline,[group])
 );
 
-create table DependentDiscipline
+CREATE TABLE DependentDiscipline
 (
-	target_discipline smallint
-	constraint FK_DependentDiscipline_Target foreign key references Disciplines(discipline_id),	
-	dependent_discipline smallint
-	constraint FK_DependentDiscipline_Dependent foreign key references Disciplines(discipline_id),	
-	primary key(target_discipline,dependent_discipline)
+	target_discipline SMALLINT
+	CONSTRAINT FK_DependentDiscipline_Target FOREIGN KEY REFERENCES Disciplines(discipline_id),	
+	dependent_discipline SMALLINT
+	CONSTRAINT FK_DependentDiscipline_Dependent FOREIGN KEY REFERENCES Disciplines(discipline_id),	
+	PRIMARY KEY(target_discipline,dependent_discipline)
 );
 
-create table RequiredDiciplines
+CREATE TABLE RequiredDiciplines
 (
-	target_discipline smallint
-	constraint FK_RequiredDiciplines_Target foreign key references Disciplines(discipline_id),	
-	required_discipline smallint
-	constraint FK_RequiredDiciplines_Dependent foreign key references Disciplines(discipline_id),	
-	primary key(target_discipline,required_discipline)
+	target_discipline SMALLINT
+	CONSTRAINT FK_RequiredDiciplines_Target FOREIGN KEY REFERENCES Disciplines(discipline_id),	
+	required_discipline SMALLINT
+	CONSTRAINT FK_RequiredDiciplines_Dependent FOREIGN KEY REFERENCES Disciplines(discipline_id),	
+	PRIMARY KEY(target_discipline,required_discipline)
 );
 
 
