@@ -1,0 +1,28 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# SQL Server Management Studio Solution File, Format Version 20.00
+VisualStudioVersion = 15.0.28307.421
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{4F2E2C19-372F-40D8-9FA7-9D2138C6997A}") = "DML", "DML\DML.ssmssqlproj", "{962A5EF4-9CDB-4445-B00C-C5DA4ECADEBE}"
+EndProject
+Project("{4F2E2C19-372F-40D8-9FA7-9D2138C6997A}") = "Select Data", "Select Data\Select Data.ssmssqlproj", "{23A80CB8-606F-45C1-B299-21F9B542D986}"
+EndProject
+Project("{4F2E2C19-372F-40D8-9FA7-9D2138C6997A}") = "Schedule", "Schedule\Schedule.ssmssqlproj", "{FD4B4BB4-25C3-4D5B-A08C-B6B2D490DD37}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Default|Default = Default|Default
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{09E3CB3A-C5C9-419C-A55D-F679F2AEBAFF}.Default|Default.ActiveCfg = Default
+		{962A5EF4-9CDB-4445-B00C-C5DA4ECADEBE}.Default|Default.ActiveCfg = Default
+		{23A80CB8-606F-45C1-B299-21F9B542D986}.Default|Default.ActiveCfg = Default
+		{FD4B4BB4-25C3-4D5B-A08C-B6B2D490DD37}.Default|Default.ActiveCfg = Default
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {5D2F8163-3050-4D92-9105-9A62270A6A93}
+	EndGlobalSection
+EndGlobal

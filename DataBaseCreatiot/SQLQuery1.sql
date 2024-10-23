@@ -1,4 +1,4 @@
-USE PD_311_HW;
+/*USE PD_311_HW;
 CREATE TABLE ReportTypes_2
 (
 	report_type_id TINYINT PRIMARY KEY NOT NULL,
@@ -31,3 +31,5 @@ CREATE TABLE RequiredDiciplines_2
 	CONSTRAINT FK_RequiredDiciplines_Dependent FOREIGN KEY REFERENCES Disciplines_2(discipline_id),	
 	PRIMARY KEY(target_discipline,required_discipline)
 );
+
+*\

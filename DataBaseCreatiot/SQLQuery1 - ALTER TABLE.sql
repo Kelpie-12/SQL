@@ -1,0 +1,4 @@
+USE PD_311_HW;
+
+ALTER TABLE Grpoups
+ALTER COLUMN group_id INT  
