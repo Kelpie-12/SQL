@@ -28,6 +28,18 @@
           <AssociatedConnUserName />
           <FullPath>SQLQuery1 - HW .sql</FullPath>
         </FileNode>
+        <FileNode Name="SQLQuery1 - INSERT Lessons in HW .sql">
+          <AssociatedConnectionMoniker>8c91a03d-f9b4-46c0-a305-b5dcc79ff907:DESKTOP-ETJ1P85\SQLEXPRESS:True</AssociatedConnectionMoniker>
+          <AssociatedConnSrvName>DESKTOP-ETJ1P85\SQLEXPRESS</AssociatedConnSrvName>
+          <AssociatedConnUserName />
+          <FullPath>SQLQuery1 - INSERT Lessons in HW .sql</FullPath>
+        </FileNode>
+        <FileNode Name="SQLQuery1 - INSERT Schedule.sql">
+          <AssociatedConnectionMoniker>8c91a03d-f9b4-46c0-a305-b5dcc79ff907:DESKTOP-ETJ1P85\SQLEXPRESS:True</AssociatedConnectionMoniker>
+          <AssociatedConnSrvName>DESKTOP-ETJ1P85\SQLEXPRESS</AssociatedConnSrvName>
+          <AssociatedConnUserName />
+          <FullPath>SQLQuery1 - INSERT Schedule.sql</FullPath>
+        </FileNode>
       </Items>
     </LogicalFolder>
     <LogicalFolder Name="Miscellaneous" Type="3" Sorted="true">

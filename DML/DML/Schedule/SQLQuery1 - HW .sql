@@ -1,7 +1,7 @@
 USE PD_311_HW;
 GO
 
-/*№1
+/*--№1
 SELECT [Название дисцеплины]=discipline_name  
 FROM Disciplines,RequiredDiciplines
 WHERE
@@ -10,24 +10,23 @@ AND
 target_discipline=
 (SELECT discipline_id FROM Disciplines 
 WHERE discipline_name LIKE '%Процедурное программирование на языке С++%');
-*/
 
-/*--№2
+
+--№2
 --DECLARE @today_date AS DATE = GETDATE();
 SELECT [Преподаватель] = T.first_name +' ' +T.last_name,
 	[Возраст]=(DATEDIFF(DAY, T.birth_date,GETDATE()))/365,
 	[Стаж (лет)]=(DATEDIFF(DAY,T.work_since ,GETDATE()))/365
 FROM Teachers AS T;
-*/
 
-/*--№3
+--№3
 SELECT [Преподаватель] = T.first_name +' ' +T.last_name,
 	[Стаж (Больше 10 лет)]=( DATEDIFF(DAY,T.work_since ,GETDATE()))/365
 FROM Teachers AS T
 WHERE ((DATEDIFF(DAY,T.work_since ,GETDATE()))/365)>10; 
-*/
 
-/*--№4
+
+--№4
 DECLARE @group_id AS INT = (SELECT Groups.group_id FROM Groups WHERE Groups.group_name LIKE 'PD_321');
 DECLARE @disciplines_name AS INT = (SELECT Disciplines.discipline_id FROM Disciplines WHERE discipline_name LIKE 'MySQL');
 DECLARE @lessons_hour AS SMALLINT = (SELECT Disciplines.number_of_lessons FROM Disciplines WHERE discipline_name LIKE 'MySQL');
